@@ -1,0 +1,87 @@
+/* Estilo del formulario */
+.container {
+    text-align: center;
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        180deg,
+        rgba(32, 104, 143  ) 0%,
+        rgba(37, 159, 184) 50%,
+        rgba(211, 216, 219 ) 100%
+    );
+    
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+h2{
+    color: #DDEEF8;
+}
+form table.pqrs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+form table.pqrs-table th,
+form table.pqrs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+form table.pqrs-table th {
+    background-color: rgba(37, 159, 184 );
+    color: #fff;
+}
+/* Estilo de la tabla */
+.pqrs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.pqrs-table th, .pqrs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.pqrs-table th {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Estilo general */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.logo img {
+    width: 100px;
+}
+/*.btn-group{
+    padding: 5px 15px;
+    margin-top: 10px;
+    width: 180px;
+    align-self: center;
+    text-transform: capitalize;
+    color: #F5FCFF;
+    font-size: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background: linear-gradient(
+        90deg,
+        rgba(67,151,239,1) 0%,
+        rgba(2,227,211,1) 100%
+    );
+}

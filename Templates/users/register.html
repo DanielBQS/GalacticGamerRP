@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Registrarse</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="alert alert-danger my-2" role="alert">
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary" style="background-color: #259FB8;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 15px;
+        cursor: pointer;">Registrarse</button>
+    </form>
+    <p style="   font-size: 14px;
+    margin-top: 10px;">¿Ya tienes una cuenta? <a href="{% url 'login' %}"  style=" 
+    text-decoration: none;
+    font-weight: bold;">Iniciar Sesión</a></p>
+</div>
+<style>
+    body {
+    
+    
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+label {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: left; /* Alinea el texto del label a la izquierda */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+
+button:hover {
+    background-color: #555;
+}
+
+
+
+a:hover {
+    text-decoration: none;
+}
+/* Estilo para el campo "Fecha de Nacimiento" */
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo para el campo "Correo Electrónico" */
+input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+/* Estilo para los mensajes de Bootstrap */
+.alert {
+    margin: 5px 0; /* Reduce el margen vertical entre los mensajes */
+    padding: 5px 10px; /* Reduce el espacio interno de los mensajes */
+    font-size: 14px; /* Reduce el tamaño de fuente de los mensajes */
+}
+.alert-danger {
+    border-color: #dc3545; /* Cambia el color del borde a rojo */
+    background-color: #f8d7da; /* Cambia el color de fondo a rojo claro */
+    color: #721c24; /* Cambia el color del texto a un tono oscuro */
+    padding: 0.75rem 1.25rem; /* Ajusta el relleno para hacerlo más visible */
+    border-radius: 0.25rem; /* Agrega bordes redondeados */
+    font-size: 14px; /* Ajusta el tamaño de fuente */
+    margin-top: 5px; /* Agrega un espacio superior para separarlo del campo anterior */
+}
+
+</style>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4"> 
+    {% include 'products/snippets/search.html' with query=query %}
+    <hr>
+    <p class="h3" style="color: #CCCCCC;">Resultados para: {{ query }} ({{ count }})</p>
+    <div class="row">
+        {% for object in producto_list %}
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-5"> <!-- Utiliza las clases de Bootstrap para definir el tamaño de la columna en diferentes tamaños de pantalla -->
+            {% include 'products/snippets/product.html' with core=object %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

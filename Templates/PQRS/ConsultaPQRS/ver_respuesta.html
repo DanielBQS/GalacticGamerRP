@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mt-5 mb-4" style="color: aliceblue; font-size: 28px;">Respuesta de PQRS:</h2>
+    <p class="text-center" style="color: rgb(175, 175, 175); font-size: 16px;">El soporte técnico de Galactic Gamer te proporciona los detalles de respuesta según tu solicitud.</p>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th>Respuesta</th>
+                    <td>{{ respuesta.respuesta }}</td>
+                </tr>
+                <tr>
+                    <th>Estado</th>
+                    <td>{{ respuesta.estado }}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de respuesta</th>
+                    <td>{{ respuesta.fecha_respuesta }}</td>
+                </tr>
+                <tr>
+                    <th>Usuario que respondió</th>
+                    <td>{{ respuesta.User }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

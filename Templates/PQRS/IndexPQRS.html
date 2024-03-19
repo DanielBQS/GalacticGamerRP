@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="opacity: 0.9;">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header" style="background-color: #259FB8; color: white;">
+                 
+                    <h2 class="text-center">Coméntanos</h2>
+                    <p class="text-center">Registra aquí tu Pregunta, Queja, Reclamo o Sugerencia</p>
+                </div>
+                <div class="card-body">
+                    
+                    <form action="" method="POST" autocomplete="off">
+                    {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha de PQRS:</label>
+                            <input type="date" id="fecha" name="fecha" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo" class="form-label">Tipo de PQRS:</label>
+                            <select id="tipo" name="tipo" class="form-select" required>
+                                <option value="Pregunta">Pregunta</option>
+                                <option value="Queja">Queja</option>
+                                <option value="Reclamo">Reclamo</option>
+                                <option value="Sugerencia">Sugerencia</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Descripción:</label>
+                            <textarea name="message" id="message" class="form-control" rows="5" placeholder="Descripción de la pregunta, queja, reclamo o sugerencia" required></textarea>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit" name="EnviarPQRS" style="background-color: #259FB8;">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{% url 'PQRSConsulta' %}" class="btn btn-secondary">Ver PQRS Enviadas</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

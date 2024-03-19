@@ -1,0 +1,19 @@
+<!--Producto-->
+{% load product_extras %}
+
+<div class="card h-100">
+    <div class="d-flex justify-content-center align-items-center"> 
+        {% if core.image %}
+            <img src="{{ core.image.url }}" alt="Imagen del Producto" height="250" width="250">
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ core.nombre_producto }}</h5>
+        <h5 class="text-danger">Precio: {{ core.PrecioProducto | price_format }}</h5>
+        {% if user.is_authenticated %}
+            <a href="{% url 'product' core.slug %}" class="btn btn-info mr-3" style="color: #fff;"> Ver Detalles </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-info mr-3" style="color: #fff;">  Ver Detalles </a>
+        {% endif %}
+    </div>
+</div>

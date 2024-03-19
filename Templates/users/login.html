@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="logo-container">
+        <img src="{% static 'img/logo.png' %}" alt="Logo de la empresa" class="logo">
+    </div>
+    <h2>Iniciar Sesión</h2>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        
+        {% if messages %}
+            {% for message in messages %}
+                {%if message.tags == 'success' %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <p>No tienes una cuenta? <a href="{% url 'register' %}">Regístrate</a></p>
+</div>
+
+<style>
+    body {
+    
+    
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+.logo-container {
+        margin-bottom: 20px;
+    }
+
+.logo {
+        width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+        height: auto;
+    }
+
+h2 {
+    color: #333;
+}
+
+form {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: left; /* Alinea el texto del label a la izquierda */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #259FB8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none;
+}
+/* Estilo para el campo "Fecha de Nacimiento" */
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo para el campo "Correo Electrónico" */
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+/* Estilo para los mensajes de Bootstrap */
+.alert {
+    margin: 5px 0; /* Reduce el margen vertical entre los mensajes */
+    padding: 5px 10px; /* Reduce el espacio interno de los mensajes */
+    font-size: 14px; /* Reduce el tamaño de fuente de los mensajes */
+}
+
+</style>
+{% endblock %}

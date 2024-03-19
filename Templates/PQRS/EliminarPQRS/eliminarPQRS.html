@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <h2>Confirmar Eliminación de PQRS</h2>
+            <p>¿Estás seguro de que deseas eliminar esta PQRS?</p>
+            <form action="{% url 'eliminar_pqrs' pk=pqrs.pk %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Eliminar PQRS</button>
+                <a href="{% url 'PQRSConsulta' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

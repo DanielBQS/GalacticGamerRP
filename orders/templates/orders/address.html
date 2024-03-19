@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+    {% include 'orders/snippets/breadcrumb.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col mt-5 d-flex justify-content-center align-items-center">
+            {% include 'orders/snippets/factura.html' %}
+        </div>
+
+        <div class="col mt-5 d-flex justify-content-center align-items-center">
+            {% if shipping_address %}
+            <div class="card">
+                <h5 class="card-header">Recoge el pedido en el punto de entrega</h5>
+                <div class="card-body">
+                    {% include 'shipping_addresses/snippets/shipping_address.html' %}
+                </div>
+            </div>
+            {% else %}
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Registra tu dirección de envío</h3>
+                    <p class="card-text">Nueva dirección de envío: <a href="{% url 'shipping_addresses:create' %}?next={{ next_url }}">Registrar</a></p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

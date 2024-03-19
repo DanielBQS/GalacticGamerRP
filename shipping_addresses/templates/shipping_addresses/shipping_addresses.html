@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3 class="mb-4 text-center" style="color: aliceblue;">Mis direcciones</h3>
+            <a href="{% url 'shipping_addresses:create' %}" class="btn btn-primary mb-2">Agregar nueva dirección</a>
+            <div class="mt-2">
+                {% for shipping_address in object_list %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            {% include 'shipping_addresses/snippets/shipping_address.html' with edit=True %} 
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

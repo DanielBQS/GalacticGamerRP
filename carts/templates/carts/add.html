@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load product_extras %}
+
+{% block content %}
+<div class="container bg-white rounded p-4 mt-5">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            {% if producto.image %}
+            <img src="{{ producto.image.url }}" alt="Imagen del Producto" class="img-fluid mb-3" style="max-height: 300px;">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <div class="h3 font-weight-bold text-success mb-4">
+                Producto agregado al carrito de compras
+            </div>
+            <div class="mb-3">
+                <a href="#" class="text-decoration-none text-dark">
+                    <h4>{{ producto.nombre_producto }}</h4>
+                </a>
+            </div>
+            <div class="font-weight-bold text-danger mb-3">
+                Precio: {{ producto.PrecioProducto | price_format }}
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'carts:cart' %}" class="btn btn-info mr-3" style="color: #fff;" >Ver Carrito</a>
+                <a href="{% url 'index' %}" class="btn btn-outline-primary">Seguir Comprando</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

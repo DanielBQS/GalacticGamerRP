@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Encabezado de la Página -->
+<section style="background: linear-gradient(to right, #259FB8, #6f00ff); opacity: 0.8;" class="text-center py-5">
+    <div class="container">
+        <h1 class="display-4 text-light">Acerca de Nosotros</h1>
+        <p class="lead text-light">Descubre quiénes somos y nuestra historia.</p>
+    </div>
+</section>
+
+<!-- Sección de Nuestra Historia -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-light">Nuestra Historia</h2>
+                <p style="color: rgb(112, 112, 112);">Somos Galactic Gamer, una empresa apasionada por los videojuegos y los periféricos de alta calidad. Fundada en el año 1996 por Kevin Learm, nuestra empresa ha estado comprometida desde entonces en proporcionar a los gamers de todo el mundo los mejores productos y accesorios para mejorar su experiencia de juego.</p>
+            </div>
+            <div class="col-md-6" style="background-color: white;">
+                <!-- Imagen de la Empresa -->
+                <img src="../static/img/logo.png" alt="Nuestra Historia" class="img-fluid mx-auto d-block mt-3" style="max-width: 200px;">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sección de Nuestro Equipo -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-light">Nuestro Equipo</h2>
+        <p style="color: rgb(112, 112, 112);">En Galactic Gamer, contamos con un equipo de expertos apasionados por los videojuegos y la tecnología. Nuestro equipo está dedicado a brindarte el mejor servicio y asesoramiento en la selección de tus periféricos de gaming.</p>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load product_extras %}
+
+{% block content %}
+    <div class="container mt-4">
+        {% if cart.Productos.exists %}
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cp in cart.products_related %}
+                            {% with Producto=cp.Producto %}
+                            <tr>
+                                <td>
+                                    {% if Producto.image %}
+                                    <img src="{{ Producto.image.url }}" alt="Imagen del producto" class="img-thumbnail" style="max-width: 100px;">
+                                    {% endif %}
+                                </td>
+                                <td>{{ Producto.nombre_producto }}</td>
+                                <td>{{ cp.quantity }}</td>
+                                <td>{{ Producto.PrecioProducto | price_format }}</td>
+                                <td>
+                                    {% include 'carts/snippets/remove.html' %}
+                                </td>
+                            </tr>
+                            {% endwith %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-lg-4"> 
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Resumen del Pedido</h5>
+                        <hr>
+                        <div class="font-weight-bold mb-3">
+                            Subtotal ({{ cart.Productos.count }} productos): <span class="text-danger">{{ cart.subtotal | price_format }}</span>
+                        </div>
+                        <a href="{% url 'orders:order'%}" class="btn btn-info mr-3" style="color: #fff;" >Proceder al pago</a>
+
+                        <a href="{% url 'index' %}" class="btn btn-secondary btn-block mt-2">Seguir comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="alert alert-info text-center" role="alert">
+                    Tu carrito de compras está vacío.
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

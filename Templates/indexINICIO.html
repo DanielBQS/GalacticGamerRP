@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <div class="Mensaje">
+        {% if messages %}
+        {% for message in messages %}
+            {%if message.tags == 'success' %}
+                <div class="alert alert-success">
+                    {{ message }}
+                  
+                </div>
+            {% else %}
+                <div class="alert alert-danger">
+                    
+                    {{ message }}
+                    
+                
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+  </div>
+  </head>
+
+
+<h1 class="text-center display-4 font-weight-bold" style="color: #00FFFF; text-shadow: 2px 2px #6f00ff; animation: fadeIn 3s;"> <span style="opacity: 0.7;">Bienvenido a</span>  <span style="opacity: 1;">Galactic</span> <span style="opacity: 1;">Gamer</span></h1>
+
+<p class="text-center" style="color: #949799;">Donde la pasión por el gaming se encuentra con la innovación tecnológica.</p>
+
+
+  <div class="container mt-5">
+
+
+      <div id="carouselExampleIndicators" class="carousel slide" style="max-width: 1000px; margin: 0 auto;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../static/img/Ofertas/Img1.png" class="d-block w-100" alt="Imagen 1" style="max-height: 600px;">
+          </div>
+          <div class="carousel-item">
+            <img src="../static/img/Ofertas/Img2.png" class="d-block w-100" alt="Imagen 2" style="max-height: 600px;">
+          </div>
+          <div class="carousel-item">
+            <img src="../static/img/Ofertas/Img3.png" class="d-block w-100" alt="Imagen 3" style="max-height: 600px;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+      
+</div>
+<!-- Título Principal -->
+<div class="container text-center mt-4">
+    
+    <p class="lead" style="color: #949799;">Tu Destino para Periféricos de Gaming de Primer Nivel</p>
+</div>
+<!-- Misión y Visión -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 bg-white rounded p-4 mt-4"> 
+            <h2>Misión</h2>
+            <p>Nuestra misión es proporcionar a los gamers productos de alta calidad que mejoren su experiencia de juego. 
+                Nos esforzamos por ofrecer una amplia selección de periféricos y accesorios gaming para satisfacer las necesidades de nuestros clientes.</p>
+                
+            <img src="../static/img/Ofertas/Mision.jpeg" alt="Imagen de la Misión" class="img-fluid mt-3">
+        </div>
+        <div class="col-md-6 bg-white rounded p-4 mt-4"> 
+            <h2>Visión</h2>
+            <p>Nuestra visión es convertirnos en el principal destino en línea para gamers en busca de periféricos de gaming de calidad.
+                 Queremos ser reconocidos por nuestra dedicación a la excelencia, la innovación y la satisfacción del cliente.</p>
+                 
+            <img src="../static/img/Ofertas/Vision2.jpg" alt="Imagen de la Vision" class="img-fluid mt-3">
+        </div>
+    </div>
+</div>
+
+<!-- Llamado a la Acción -->
+<div class="container text-center mt-4">
+    <p style="color: #949799;">Descubre nuestra amplia selección de periféricos de gaming y lleva tu experiencia de juego al siguiente nivel.</p>
+    {% if user.is_authenticated %}
+    <!-- El usuario ha iniciado sesión, muestra el botón para explorar productos -->
+    <a href="{% url 'index' %}" class="btn btn-custom-color btn-lg">Explora Nuestros Productos</a>
+{% else %}
+    <!-- El usuario no ha iniciado sesión, muestra el enlace para iniciar sesión -->
+    <a href="{% url 'login' %}" class="btn btn-custom-color btn-lg">Inicia Sesión y Explora Nuestros Productos!!</a>
+{% endif %}
+   
+</div>
+  <style>
+    .container{
+        margin-top: 40px;
+        
+    }
+    .img{
+        border-radius: 10px;
+    }
+    .btn-custom-color{
+    background-color: #259FB8;
+    border-color: #259FB8;
+    color: #fff; 
+    }
+</style>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

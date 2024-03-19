@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashboardEmpleado</title>
+    <script src="https://kit.fontawesome.com/2f1843b165.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/stylePQRSE.css' %}"> 
+</head>
+<body>
+    <header>
+        <div class="header__superior">
+            
+            <div class="logo">
+                <img src="../../../static/img/logo2.png" alt="">
+            </div>
+            <div class="tituloDas">
+                <h1>Dashboard Galactic Gamer</h1>
+            </div>
+        </div>
+        <div class="container__menu">
+           
+            <div class="menu">
+                <input type="checkbox" id="check__menu">
+                <label id="label__check" for="check__menu"> 
+                    <i class="fa-solid fa-bars icon__menu"></i>
+                </label>
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'DashEmpleado' %}">Inicio</a></li>
+                        <li><a href="">Clientes</a></li>
+                        <li><a href="">Proveedores</a></li>
+                        <li><a href="">Inventario</a></li>
+                        <li><a href="">Ventas</a></li>
+                        <li><a href="{% url 'PQRSempleado' %}">PQRS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+</body>
+</html>

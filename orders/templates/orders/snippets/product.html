@@ -1,0 +1,19 @@
+{% load product_extras %}
+
+ <div class="row mt-4">
+        <div class="col-2">
+            {% if producto.image %}
+            <img src="{{ producto.image.url }}" alt="Imagen del producto" class="img-fluid">
+            {% endif %}
+        </div>
+        <div class="col-5">
+            <div class="row">
+            <strong>
+                <a href={% url 'product' producto.slug%}>"{{ producto.nombre_producto }}"<a/>
+            </strong>
+        </div>
+        <div class="row">
+            <strong class="text-danger">Precio: {{ producto.PrecioProducto | price_format }}</strong>
+    </div>
+</div>
+</div>

@@ -1,0 +1,20 @@
+<div class="card">
+    <h5 class="card-header">Dirección de Envío</h5>
+    <div class="card-body">
+        <h5 class="card-title">{{ shipping_address.address }}</h5>
+        <p class="card-text">{{ shipping_address.reference }}</p>
+        <p class="card-text">{{ shipping_address.postal_code }}</p>
+
+        {% if edit %}
+            <div class="mt-2">
+                <a href="{% url 'shipping_addresses:update' shipping_address.pk %}" class="btn btn-info">Editar</a>
+                {% if shipping_address.default %}
+                    <div class="text-info mt-2">Dirección principal</div>
+                {% else %}
+                    <a href="{% url 'shipping_addresses:default' shipping_address.pk %}" class="btn btn-warning">Default</a>    
+                    <a href="{% url 'shipping_addresses:delete' shipping_address.pk %}" class="btn btn-danger">Eliminar</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
